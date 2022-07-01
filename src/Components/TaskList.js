@@ -32,8 +32,8 @@ export const TaskList = () => {
         {
           tasks ?
             tasks.filter(t=>(t.completed === fil)).map(task => (
-              <div key={task.id} className={task.completed ? 'bg-slate-800  flex flex-col rounded-xl w-80  p-2 m-2' : 'bg-slate-500 flex flex-col rounded-xl w-80 p-2 m-2'}>
-                <input type='checkbox' checked={task.completed} onChange={() => handleCheck(task.id)} />
+              <div key={task.id} className={task.completed ? 'bg-slate-800  flex flex-col rounded-xl w-80  p-2 m-2 relative' : 'bg-slate-500 flex flex-col rounded-xl w-80 p-2 m-2 relative'}>
+                <input className='absolute right-0 mr-6' type='checkbox' checked={task.completed} onChange={() => handleCheck(task.id)} />
                 <h3 className='text-2xl text-white'>
                   {task.title}
                 </h3>
@@ -55,7 +55,12 @@ export const TaskList = () => {
         }
       </div>
       <div className='flex flex-row-reverse m-2 mr-8'>
-        <span className='text-white hover:scale-110 justify-end bg-blue-600 p-1 rounded-lg' onClick={()=>setFil(!fil)}>Show  {fil? 'Incompleted': 'Completed'}</span>
+      {
+                    tasks.filter(t=>(t.completed === fil)).length !== 0?
+                    <span className='text-white hover:scale-110 justify-end bg-blue-600 p-1 rounded-lg' onClick={()=>setFil(!fil)}>Show  {fil? 'Incompleted': 'Completed'}</span>:
+                    ''
+                    
+                  }
       </div>
     </div >
   )
