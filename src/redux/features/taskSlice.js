@@ -6,8 +6,8 @@ export const taskSlice = createSlice({
     initialState: getItemsCart() === null ? [] : getItemsCart(),
     reducers: {
         addTask: (state, action) => {
-            state.push(action.payload);
-            addItemCart(action.payload);
+            state.push(action.payload)
+            addItemCart(action.payload)
         },
         editTask: (state, action) => {
             const { id, title, description } = action.payload;

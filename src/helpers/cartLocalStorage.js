@@ -13,16 +13,13 @@ export const getItemsCart  = () =>{
 }
 
 export const addItemCart  = (item) =>{
-    console.log(item);
     const dataCart = JSON.parse(localStorage.getItem('tasks'));
     console.log(dataCart);
     if(dataCart === ''){
         localStorage.setItem('tasks', JSON.stringify([item]));
-        console.log('vaciio');
     }else{
         dataCart.push(item);
         localStorage.setItem('tasks', JSON.stringify(dataCart));
-        console.log('lleno');
     }
 }
 export const changeItemCartPlus  = (items) =>{

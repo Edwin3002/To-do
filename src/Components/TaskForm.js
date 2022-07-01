@@ -48,10 +48,10 @@ export const TaskForm = () => {
       <form className='flex flex-col ' onSubmit={handleSubmit}>
         <input className='my-1 rounded-lg p-2' name='title' type='text' placeholder='Title' value={task.title} onChange={handleChange} />
         <textarea  className='my-1 rounded-lg p-2' name='description' placeholder='Description' value={task.description} onChange={handleChange} />
-        <button className='mx-auto my-2 w-1/2 bg-green-500 p-1 rounded-lg'>Save</button>
+        <button className='mx-auto my-2 w-1/2 bg-green-500 p-1 rounded-lg hover:scale-110'>Save</button>
       </form>
       <div className='flex flex-row- m-2'>
-      <Link className='text-white px-4 bg-blue-600 p-1 rounded-lg' to='/'>Back</Link>
+      <Link className='text-white px-4 bg-blue-600 p-1 rounded-lg hover:scale-110' to='/'>Back</Link>
       </div>
     </div>
   )

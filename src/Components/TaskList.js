@@ -26,7 +26,7 @@ export const TaskList = () => {
     <div className='text-center'>
       <h1 className='text-3xl font-bold text-white mt-4'>{!fil ? 'Incompleted' : 'Completed'} Tasks {tasks !== '' ? tasks.filter(t => (t.completed === fil)).length : '0'}</h1>
       <div className='flex flex-row-reverse m-2 mr-8'>
-        <Link className=' justify-end bg-green-500 p-1 rounded-lg' to='create-task'>Create task</Link>
+        <Link className=' justify-end bg-green-500 p-1 rounded-lg hover:scale-110' to='create-task'>Create task</Link>
       </div>
       <div className='flex flex-wrap justify-around'>
         {
