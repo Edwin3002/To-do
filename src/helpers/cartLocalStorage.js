@@ -14,7 +14,6 @@ export const getItemsCart  = () =>{
 
 export const addItemCart  = (item) =>{
     const dataCart = JSON.parse(localStorage.getItem('tasks'));
-    console.log(dataCart);
     if(dataCart === ''){
         localStorage.setItem('tasks', JSON.stringify([item]));
     }else{
