@@ -9,6 +9,7 @@ import { checkTask, deleteTask } from '../redux/features/taskSlice'
 export const TaskList = () => {
   const tasks = useSelector(state => state.tasks)
   const dispatch = useDispatch()
+  const [fil, setFil] = useState(false)
 
   const handleDelete = (id) => {
     dispatch(deleteTask(id))
@@ -16,20 +17,20 @@ export const TaskList = () => {
   const handleCheck = (id) => {
     dispatch(checkTask(id))
   }
-  const [fil, setFil] = useState(false)
+
   useEffect(() => {
     createLocalS();
   }, [])
 
   return (
     <div className='text-center'>
-      <h1 className='text-3xl font-bold text-white mt-4'>{!fil ? 'Incompleted' : 'Completed'} Tasks {tasks !== [] ? tasks.filter(t => (t.completed === fil)).length : 0}</h1>
+      <h1 className='text-3xl font-bold text-white mt-4'>{!fil ? 'Incompleted' : 'Completed'} Tasks {tasks !== '' ? tasks.filter(t => (t.completed === fil)).length : '0'}</h1>
       <div className='flex flex-row-reverse m-2 mr-8'>
         <Link className=' justify-end bg-green-500 p-1 rounded-lg' to='create-task'>Create task</Link>
       </div>
       <div className='flex flex-wrap justify-around'>
         {
-          tasks !== []?
+          tasks !== ''?
             tasks.filter(t => (t.completed === fil)).map(task => (
               <div key={task.id} className={task.completed ? 'bg-slate-800  flex flex-col rounded-xl w-80  p-2 m-2 relative' : 'bg-slate-500 flex flex-col rounded-xl w-80 p-2 m-2 relative'}>
                 <input className='absolute right-0 mr-6' type='checkbox' checked={task.completed} onChange={() => handleCheck(task.id)} />
